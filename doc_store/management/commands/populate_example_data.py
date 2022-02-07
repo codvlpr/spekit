@@ -127,7 +127,29 @@ class Command(BaseCommand):
                 ],
                 "topics": ["recipe", "workout"],
                 "name": "misc",
-            }
+            },
+            {
+                "documents": [
+                    {
+                        "name": "service.pdf",
+                        "topics": ["SpekiLove!"],
+                    },
+                    {
+                        "name": "feedback.pdf",
+                        "topics": ["SpekiLove!"],
+                    },
+                    {
+                        "name": "sad_user.pdf",
+                        "topics": ["SpekiLove!"],
+                    },
+                    {
+                        "name": "happy_user.pdf",
+                        "topics": ["SpekiLove!"],
+                    },
+                ],
+                "topics": ["SpekiLove!", "SpekiLove!"],
+                "name": "customer feedback",
+            },
         ]
 
         topics = [
@@ -145,6 +167,16 @@ class Command(BaseCommand):
                 "name": "recipe",
                 "short_description": "Recipe related matters",
                 "long_description": "Recipe related matters 10x",
+            },
+            {
+                "name": "recipe",
+                "short_description": "Recipe related matters",
+                "long_description": "Recipe related matters 10x",
+            },
+            {
+                "name": "SpekiLove!",
+                "short_description": "Spekit loves tests cases",
+                "long_description": "Spekit loves tests cases 10x",
             },
         ]
 
