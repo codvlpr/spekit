@@ -34,14 +34,18 @@ class DocumentViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         """
         Optionally restricts the returned documents to the given topics,
-        by filtering against the `q` query parameter in the URL.
+        by filtering against the `q` and `folder` query parameter in the URL.
         """
         topics = self.request.query_params.getlist('q')
+        folder = self.request.query_params.get('folder')
         if topics:
             tis = Topic.objects.get_topic_items(topics, "document")
             queryset = Document.objects.filter(pk__in=tis)
         else:
             queryset = Document.objects.all()
+
+        if folder:
+            queryset = queryset.filter(folder_id=folder)
         return queryset
 
 
