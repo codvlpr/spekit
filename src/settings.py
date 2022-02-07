@@ -26,7 +26,12 @@ SECRET_KEY = 'django-insecure-d-e16s$2-=8l6gbn2y3l5k#8oqts4rxdyt^qi##nxpzh4u^!$$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'spekit-test.herokuapp.com',
+    '0.0.0.0',
+    'localhost',
+    '127.0.0.1',
+]
 
 
 # Application definition
