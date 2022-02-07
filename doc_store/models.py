@@ -130,9 +130,43 @@ class TopicManager(models.Manager.from_queryset(TopicQuerySet)):
 
         topics = Topic.objects.filter(name__in=topics)
         for topic in topics:
-            TopicItem.objects.create(content_type=model, object_id=instance.id, topic=topic)
+            topic_item, _ = TopicItem.objects.get_or_create(content_type=model, object_id=instance.id, topic=topic)
 
         return topics
+
+    @staticmethod
+    def get_topic_items(topics, instance, *args, **kwargs):
+        """
+        Filter topic items from targeted model
+
+        Params
+        ----------
+        topics : list
+            list of strings
+
+        instance : str
+            get target model from ContentType framework
+
+        Return
+        ----------
+        tis : TopicItem
+            Queryset of the filtered topic items
+
+        """
+        if instance == "document":
+            instance = Document
+        elif instance == "folder":
+            instance = Folder
+        else:
+            raise NotImplementedError
+
+        ct = ContentType.objects.get_for_model(instance)
+        tis = TopicItem.objects.filter(
+            topic__name__in=topics,
+            content_type=ct,
+        ).values_list("object_id", flat=True)
+
+        return tis
 
 
 class Topic(models.Model):

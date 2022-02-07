@@ -17,4 +17,5 @@ A dockerized Django based API that stores “digital documents” in “folders�
 `$ docker exec -ti spekit_web_1 python manage.py populate_example_data`
 
 Development server will be available at `http://localhost:8000/`  
-Django admin app will be available at `http://localhost:8000/admin/`
+Django admin app will be available at `http://localhost:8000/admin/`  
+REST API will be available at `http://localhost:8000/api/v1/`
