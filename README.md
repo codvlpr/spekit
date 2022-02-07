@@ -12,9 +12,12 @@ A dockerized Django based API that stores “digital documents” in “folders�
 `$ cd spekit`  
 `$ docker-compose build`  
 `$ docker-compose up -d `  
-`$ docker exec -ti spekit_web_1 python manage.py migrate `  
-`$ docker exec -ti spekit_web_1 python manage.py createsuperuser `  
-`$ docker exec -ti spekit_web_1 python manage.py populate_example_data`
+`$ docker exec -ti spekit_web python manage.py migrate `  
+`$ docker exec -ti spekit_web python manage.py createsuperuser `  
+`$ docker exec -ti spekit_web python manage.py populate_example_data`  
+
+### To run test cases
+`$ docker exec -ti spekit_web_1 python manage.py test --keepdb`
 
 Development server will be available at `http://localhost:8000/`  
 Django admin app will be available at `http://localhost:8000/admin/`  
